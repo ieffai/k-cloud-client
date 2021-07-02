@@ -1,0 +1,53 @@
+@import '../../utils/colors.scss';
+
+.authorization {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+  padding: 50px;
+  align-self: center;
+  margin-top: 100px;
+
+  &__header {
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  &__btn {
+    border: none;
+    background-color: $font-color;
+    border-radius: 8px;
+    color: white;
+    font-weight: 700;
+    padding: 5px 10px;
+    align-self: flex-end;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  @media screen and (max-width: 767px) {
+    &__btn {
+      align-self: center;
+      width: 90%;
+    }
+  }
+  input {
+    margin: 10px 20px;
+  }
+  @media screen and (max-width: 767px) {
+    input {
+      width: 90%;
+      height: 35px;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .authorization {
+    width: 100%;
+    padding: 5px;
+    margin-top: 25px;
+  }
+}

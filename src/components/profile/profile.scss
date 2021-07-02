@@ -1,0 +1,86 @@
+@import '../../utils/colors.scss';
+
+.profile {
+  display: flex;
+  width: 40%;
+  padding: 50px;
+  margin: 0 auto;
+  flex-direction: column;
+
+  &__img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    align-self: center;
+  }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 50%;
+    span {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+  }
+  &__btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  &__del-btn {
+    font-family: 'Raleway';
+    font-size: 16px;
+    padding: 10px;
+    background-color: $background-color;
+    color: $font-color;
+    border: 2px solid $font-color;
+    border-radius: 10px;
+    background-image: linear-gradient(to bottom, $background-color 50%, $font-color 50%);
+    background-size: 100% 200%;
+    transition: all 1s;
+    color: $font-color;
+    &:hover {
+      background-position: 0 -98%;
+      color: $background-color;
+    }
+  }
+  &__upload {
+    cursor: pointer;
+  }
+
+  &__upload-label {
+    border-radius: 10px;
+    font-size: 16px;
+    position: relative;
+    padding: 10px;
+    border: 2px solid $font-color;
+    background-image: linear-gradient(to bottom, $background-color 50%, $font-color 50%);
+    background-size: 100% 200%;
+    transition: all 1s;
+    color: $font-color;
+
+    input[type='file'] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+
+    &:hover {
+      background-position: 0 -98%;
+      color: $background-color;
+    }
+  }
+  &__back {
+    font-family: 'Raleway';
+    font-size: 16px;
+    padding: 10px;
+    background-color: $background-color;
+    color: $side-color;
+    border: 2px solid $side-color;
+    border-radius: 10px;
+    width: 100%;
+    margin: 20px auto;
+  }
+}
