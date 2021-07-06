@@ -18,15 +18,15 @@ function File({ file }) {
     }
   }
 
-  const downloadHandler = (e) => {
+  function downloadClickHandler(e) {
     e.stopPropagation();
-    downloadFile(e);
-  };
+    downloadFile(file);
+  }
 
-  const deleteHandler = (e) => {
+  function deleteClickHandler(e) {
     e.stopPropagation();
-    dispatch(deleteFile(e));
-  };
+    dispatch(deleteFile(file));
+  }
 
   if (fileView === 'list') {
     return (
@@ -36,9 +36,9 @@ function File({ file }) {
         <div className="file__date">{file.date.slice(0, 10)}</div>
         <div className="file__size">{sizeFormat(file.size)}</div>
         {file.type !== 'dir' && (
-          <button onClick={downloadHandler} className="file__btn file__download" />
+          <button onClick={(e) => downloadClickHandler(e)} className="file__btn file__download" />
         )}
-        <button onClick={deleteHandler} className="file__btn file__delete" />
+        <button onClick={(e) => deleteClickHandler(e)} className="file__btn file__delete" />
       </div>
     );
   }
@@ -50,9 +50,15 @@ function File({ file }) {
         <div className="file-plate__name">{file.name}</div>
         <div className="file-plate__btns">
           {file.type !== 'dir' && (
-            <button onClick={downloadHandler} className="file-plate__btn file-plate__download" />
+            <button
+              onClick={(e) => downloadClickHandler(e)}
+              className="file-plate__btn file-plate__download"
+            />
           )}
-          <button onClick={deleteHandler} className="file-plate__btn file-plate__delete" />
+          <button
+            onClick={(e) => deleteClickHandler(e)}
+            className="file-plate__btn file-plate__delete"
+          />
         </div>
       </div>
     );
