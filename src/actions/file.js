@@ -5,14 +5,6 @@ import { addUploadFile, changeUploadFile, showUploader } from "../reducers/uploa
 import { API_URL } from "../config";
 import { getUser } from "./user";
 
-const api = axios.create({
-    baseURL: 'http://localhost:5000/api/files',
-       
-    headers: {Authorization: `Bearer ${localStorage.getItem('token')}`}
-    
-});
-  
-  
 export function getFiles(dirId, sort) {
 
     return async dispatch => {
@@ -102,30 +94,35 @@ export function uploadFile(file, dirId) {
 }
 
 export async function downloadFile(file) {
-    api.get(`/download/?id=${file._id}`, {
-        responseType: 'blob'
-      })
-      .then(data => {
-            const blob = data.data;
-            const downloadUrl = window.URL.createObjectURL(blob);
-            const link = document.createElement('a');
-            link.href = downloadUrl;
-            link.download = file.name;
-            document.body.appendChild(link);
-            link.click();
-            link.remove()
-        }).catch(e => console.log(e));
+    const response = await fetch(`${API_URL}api/files/download?id=${file._id}`,{
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+    })
+    if (response.status === 200) {
+        const blob = await response.blob()
+        const downloadUrl = window.URL.createObjectURL(blob)
+        const link = document.createElement('a')
+        link.href = downloadUrl
+        link.download = file.name
+        document.body.appendChild(link)
+        link.click()
+        link.remove()
+    }
 
 }
 export function deleteFile(file) {
     return async dispatch => {
         try {
-            const response = await api.delete(`?id=${file._id}`);
-            dispatch(deleteFileAction(file._id));
-            dispatch(getUser());
-            alert(response.data.message);
-        } catch (error) {
-            alert(error.response.data.message);
+            const response = await axios.delete(`${API_URL}api/files?id=${file._id}`,{
+                headers:{
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            })
+            dispatch(deleteFileAction(file._id))
+            alert(response.data.message)
+        } catch (e) {
+            alert(e?.response?.data?.message)
         }
     }
 }
