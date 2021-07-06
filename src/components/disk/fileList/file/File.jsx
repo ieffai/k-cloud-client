@@ -20,12 +20,12 @@ function File({ file }) {
 
   const downloadHandler = (e) => {
     e.stopPropagation();
-    downloadFile(file);
+    downloadFile(e);
   };
 
   const deleteHandler = (e) => {
     e.stopPropagation();
-    dispatch(deleteFile(file));
+    dispatch(deleteFile(e));
   };
 
   if (fileView === 'list') {
