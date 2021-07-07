@@ -19,7 +19,7 @@ const Navbar = () => {
   const [searchName, setSearchName] = React.useState('');
   const [searchTimeout, setSearchTimeout] = React.useState(false);
   const avatar = currentUser?.avatar
-    ? `${API_URL + 'api/files/' + currentUser.id + '\\' + currentUser.avatar}`
+    ? `${API_URL + 'api/files\\' + currentUser.id + '\\' + currentUser.avatar}`
     : avatarLogo;
 
   const logoutHandler = () => {
