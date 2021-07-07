@@ -19,7 +19,7 @@ Install all dependencies, in repo's root:
 
 - **Used technologies**
 
-  - React, redux, rudux-thunk
+  - React, redux, redux-thunk
   - axios, express
   - sass
 
