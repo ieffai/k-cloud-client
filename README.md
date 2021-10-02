@@ -1,6 +1,6 @@
 ## **Frontend for @k-cloud service**
 
-This is an example of cloud service with registration, storage files and folders and avatar editing<br />
+This is an example of cloud service with registration, storage files, folders and avatar editing<br />
 Backend part. <br />
 
 🕹 Demo is <a href="https://kcloud-react.herokuapp.com" target="_blank">**here**</a> 🕹
