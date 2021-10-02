@@ -3,7 +3,7 @@
 This is an example of cloud service with registration, storage files, folders and avatar editing<br />
 Backend part. <br />
 
-🕹 Demo is <a href="https://kcloud-react.herokuapp.com" target="_blank">**here**</a> 🕹
+🕹 Demo is <a href="https://kcloud-react.herokuapp.com" target="_blank">**here**</a> (30-40 seconds for start on herokku)🕹 
 
 Backend code is <a href="https://github.com/ieffai/k-cloud-back" target="_blank">**here**</a>.
 
